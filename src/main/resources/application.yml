@@ -2,6 +2,9 @@ spring:
   application:
     name: rent-a-car
 
+  jackson:
+    serialization.fail-on-empty-beans: false
+
   transaction.default-timeout: 30
 
   datasource:
