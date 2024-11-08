@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import pu.fmi.rent_a_car.car.model.Car;
 import pu.fmi.rent_a_car.car.model.CarCreateEditRequest;
 import pu.fmi.rent_a_car.car.model.CarRepository;
+import pu.fmi.rent_a_car.office.model.OfficeRepository;
 
 @Service
 @Transactional
@@ -20,6 +21,7 @@ import pu.fmi.rent_a_car.car.model.CarRepository;
 public class CarServiceImpl implements CarService {
 
   CarRepository carRepository;
+  OfficeRepository officeRepository;
 
   @Override
   public Car create(CarCreateEditRequest request) {
@@ -33,8 +35,8 @@ public class CarServiceImpl implements CarService {
 
   @Override
   public Page<Car> getAllByLocation(String location, Pageable pageable) {
-    var lowerLocation = Optional.ofNullable(location).map(String::toLowerCase).orElse(null);
-    return carRepository.findAllByLocationLikeIgnoreCase(lowerLocation, pageable);
+    var startMatchLocation = Optional.ofNullable(location).map(l -> l.concat("%")).orElse(null);
+    return carRepository.findAllByOfficeCityLikeIgnoreCase(startMatchLocation, pageable);
   }
 
   @Override
@@ -49,13 +51,13 @@ public class CarServiceImpl implements CarService {
     car.setActive(false);
   }
 
-  private static Car requestIntoEntity(CarCreateEditRequest request, Car car) {
+  private Car requestIntoEntity(CarCreateEditRequest request, Car car) {
     return Optional.ofNullable(car)
         .map(Car::toBuilder)
         .orElseGet(Car::builder)
         .brand(request.brand())
         .model(request.model())
-        .location(request.location())
+        .office(officeRepository.getReferenceById(request.officeId()))
         .pricePerDay(request.pricePerDay())
         .active(true)
         .taken(false)

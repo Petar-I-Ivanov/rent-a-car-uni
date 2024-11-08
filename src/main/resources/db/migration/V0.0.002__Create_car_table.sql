@@ -1,9 +1,0 @@
-CREATE TABLE Car (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    brand VARCHAR(50) NOT NULL,
-    model VARCHAR(255) NOT NULL,
-    location VARCHAR(50) NOT NULL,
-    price_per_day DECIMAL(10, 2) NOT NULL,
-    taken BOOLEAN NOT NULL,
-    active BOOLEAN NOT NULL
-);
