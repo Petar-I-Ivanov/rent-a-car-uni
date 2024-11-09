@@ -12,5 +12,5 @@ CREATE TABLE offer (
 
     -- Foreign key constraints
     FOREIGN KEY (car_id) REFERENCES `car`(id),
-    FOREIGN KEY (user_id) REFERENCES `user`(id)
+    FOREIGN KEY (user_id) REFERENCES `users`(id)
 );
