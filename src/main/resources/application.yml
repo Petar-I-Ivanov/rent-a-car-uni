@@ -5,6 +5,9 @@ spring:
   jackson:
     serialization.fail-on-empty-beans: false
 
+  servlet:
+    error.include-stacktrace: never
+
   transaction.default-timeout: 30
 
   datasource:

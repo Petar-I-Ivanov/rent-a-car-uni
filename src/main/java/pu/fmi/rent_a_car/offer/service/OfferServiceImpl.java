@@ -81,6 +81,10 @@ public class OfferServiceImpl implements OfferService {
   }
 
   private static void validateCarForOffer(Car car, User user) {
+    if (!user.isActive()) {
+      throw new DataValidationException("User must be active for offer!");
+    }
+
     if (!car.isActive()) {
       throw new DataValidationException("Car must be active for offer!");
     }
