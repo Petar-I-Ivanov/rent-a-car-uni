@@ -1,6 +1,5 @@
-package pu.fmi.rent_a_car.car.model;
+package pu.fmi.rent_a_car.offer.model;
 
-import static java.math.RoundingMode.HALF_UP;
 import static lombok.AccessLevel.PRIVATE;
 
 import jakarta.persistence.Column;
@@ -15,7 +14,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import pu.fmi.rent_a_car.office.model.Office;
+import pu.fmi.rent_a_car.car.model.Car;
+import pu.fmi.rent_a_car.user.model.User;
 
 @Entity
 @Data
@@ -23,30 +23,30 @@ import pu.fmi.rent_a_car.office.model.Office;
 @AllArgsConstructor
 @Builder(toBuilder = true)
 @FieldDefaults(level = PRIVATE)
-public class Car {
+public class Offer {
 
   @Id @GeneratedValue Long id;
 
-  @Column(length = 50, nullable = false)
-  String brand;
-
-  @Column(length = 255, nullable = false)
-  String model;
+  @ManyToOne(optional = false)
+  @JoinColumn(name = "car_id", nullable = false)
+  Car car;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "office_id", nullable = false)
-  Office office;
-
-  @Column(scale = 2, nullable = false)
-  BigDecimal pricePerDay;
+  @JoinColumn(name = "user_id", nullable = false)
+  User user;
 
   @Column(nullable = false)
-  boolean taken;
+  Short daysOfRent;
+
+  @Column(scale = 2, nullable = false)
+  BigDecimal totalPrice;
+
+  @Column(nullable = false)
+  boolean accepted;
+
+  @Column(nullable = false)
+  boolean expired;
 
   @Column(nullable = false)
   boolean active;
-
-  public void setPricePerDay(BigDecimal pricePerDay) {
-    this.pricePerDay = pricePerDay.setScale(2, HALF_UP);
-  }
 }
