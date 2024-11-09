@@ -10,4 +10,4 @@ public record CarCreateEditRequest(
     @NotBlank @Size(max = 50) String brand,
     @NotBlank @Size(max = 255) String model,
     @NotNull Long officeId,
-    @Positive BigDecimal pricePerDay) {}
+    @NotNull @Positive BigDecimal pricePerDay) {}

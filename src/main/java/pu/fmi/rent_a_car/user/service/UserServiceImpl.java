@@ -25,7 +25,9 @@ public class UserServiceImpl implements UserService {
   @Override
   public User create(UserCreateEditRequest request) {
     validateExistingPhone(request.phone(), null);
-    return userRepository.save(requestIntoEntity(request, null));
+    var user = userRepository.save(requestIntoEntity(request, null));
+    user.setActive(true);
+    return user;
   }
 
   @Override

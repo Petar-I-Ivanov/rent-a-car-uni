@@ -68,6 +68,7 @@ public class OfferServiceImpl implements OfferService {
   public Offer acceptOffer(Long id) {
     var offer = getById(id);
     var today = LocalDate.now();
+    offer.getCar().setTaken(true);
     offer.setAcceptedAt(today);
     offer.setAccepted(true);
     offer.setExpireAt(today.plusDays(offer.getDaysOfRent()));

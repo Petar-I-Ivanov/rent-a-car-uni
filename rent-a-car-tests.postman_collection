@@ -1,0 +1,1764 @@
+{
+	"info": {
+		"_postman_id": "4dcab5f9-06c9-4cc3-9a57-e55d351e7f86",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38671203"
+	},
+	"item": [
+		{
+			"name": "Valid car create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"brand\":\"BMW\",\r\n    \"model\":\"E60\",\r\n    \"officeId\":\"2\",\r\n    \"pricePerDay\":\"150\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Valid car create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\":\"BMW\",\r\n    \"model\":\"E60\",\r\n    \"officeId\":\"2\",\r\n    \"pricePerDay\":\"150\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:30:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 53,\n    \"brand\": \"BMW\",\n    \"model\": \"E60\",\n    \"office\": {\n        \"id\": 2,\n        \"country\": \"Bulgaria\",\n        \"city\": \"Plovdiv\",\n        \"address\": \"456 Central Ave, Plovdiv\",\n        \"hibernateLazyInitializer\": {}\n    },\n    \"pricePerDay\": 150,\n    \"taken\": false,\n    \"active\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Invalid office reference car create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"brand\":\"BMW\",\r\n    \"model\":\"E60\",\r\n    \"officeId\":\"22\",\r\n    \"pricePerDay\":\"150\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Invalid office reference car create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\":\"BMW\",\r\n    \"model\":\"E60\",\r\n    \"officeId\":\"22\",\r\n    \"pricePerDay\":\"150\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:31:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unable to find pu.fmi.rent_a_car.office.model.Office with id 22\",\n    \"code\": 404\n}"
+				}
+			]
+		},
+		{
+			"name": "Bean invalid car create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"brand\":\"  \",\r\n    \"model\":\"  \",\r\n    \"pricePerDay\":\"-150\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Bean invalid car create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\":\"  \",\r\n    \"model\":\"  \",\r\n    \"pricePerDay\":\"-150\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:31:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"officeId\": \"must not be null\",\n    \"model\": \"must not be blank\",\n    \"brand\": \"must not be blank\",\n    \"pricePerDay\": \"must be greater than 0\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Valid get car by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/42",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"42"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Valid get car by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/42",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"42"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:31:46 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 42,\n    \"brand\": \"Mercedes\",\n    \"model\": \"C220\",\n    \"office\": {\n        \"id\": 1,\n        \"country\": \"Bulgaria\",\n        \"city\": \"Sofia\",\n        \"address\": \"123 Main St, Sofia\"\n    },\n    \"pricePerDay\": 100,\n    \"taken\": false,\n    \"active\": false,\n    \"hibernateLazyInitializer\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Invalid get car by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/-50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"-50"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Invalid get car by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/-50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"-50"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:31:56 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unable to find pu.fmi.rent_a_car.car.model.Car with id -50\",\n    \"code\": 404\n}"
+				}
+			]
+		},
+		{
+			"name": "List cars by location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars?location=plov",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "plov"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List cars by location",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars?location=plov",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars"
+							],
+							"query": [
+								{
+									"key": "location",
+									"value": "plov"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:33:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"content\": [\n        {\n            \"id\": 33,\n            \"brand\": \"BMW\",\n            \"model\": \"E60\",\n            \"office\": {\n                \"id\": 2,\n                \"country\": \"Bulgaria\",\n                \"city\": \"Plovdiv\",\n                \"address\": \"456 Central Ave, Plovdiv\"\n            },\n            \"pricePerDay\": 150,\n            \"taken\": false,\n            \"active\": true\n        },\n        {\n            \"id\": 41,\n            \"brand\": \"Mercedes\",\n            \"model\": \"C220\",\n            \"office\": {\n                \"id\": 2,\n                \"country\": \"Bulgaria\",\n                \"city\": \"Plovdiv\",\n                \"address\": \"456 Central Ave, Plovdiv\"\n            },\n            \"pricePerDay\": 100,\n            \"taken\": false,\n            \"active\": true\n        },\n        {\n            \"id\": 44,\n            \"brand\": \"Mercedes\",\n            \"model\": \"E class\",\n            \"office\": {\n                \"id\": 2,\n                \"country\": \"Bulgaria\",\n                \"city\": \"Plovdiv\",\n                \"address\": \"456 Central Ave, Plovdiv\"\n            },\n            \"pricePerDay\": 200,\n            \"taken\": false,\n            \"active\": true\n        },\n        {\n            \"id\": 45,\n            \"brand\": \"Audi\",\n            \"model\": \"A4\",\n            \"office\": {\n                \"id\": 2,\n                \"country\": \"Bulgaria\",\n                \"city\": \"Plovdiv\",\n                \"address\": \"456 Central Ave, Plovdiv\"\n            },\n            \"pricePerDay\": 100,\n            \"taken\": false,\n            \"active\": true\n        },\n        {\n            \"id\": 49,\n            \"brand\": \"Audi\",\n            \"model\": \"A8\",\n            \"office\": {\n                \"id\": 2,\n                \"country\": \"Bulgaria\",\n                \"city\": \"Plovdiv\",\n                \"address\": \"456 Central Ave, Plovdiv\"\n            },\n            \"pricePerDay\": 200,\n            \"taken\": false,\n            \"active\": true\n        },\n        {\n            \"id\": 53,\n            \"brand\": \"BMW\",\n            \"model\": \"E60\",\n            \"office\": {\n                \"id\": 2,\n                \"country\": \"Bulgaria\",\n                \"city\": \"Plovdiv\",\n                \"address\": \"456 Central Ave, Plovdiv\"\n            },\n            \"pricePerDay\": 150,\n            \"taken\": false,\n            \"active\": true\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 20,\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"offset\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"last\": true,\n    \"totalPages\": 1,\n    \"totalElements\": 6,\n    \"first\": true,\n    \"size\": 20,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": true,\n        \"sorted\": false,\n        \"unsorted\": true\n    },\n    \"numberOfElements\": 6,\n    \"empty\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Valid car update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"brand\":\"Mercedes\",\r\n    \"model\":\"C220\",\r\n    \"officeId\":\"1\",\r\n    \"pricePerDay\":\"100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/42",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"42"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Valid car update",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\":\"Mercedes\",\r\n    \"model\":\"C220\",\r\n    \"officeId\":\"1\",\r\n    \"pricePerDay\":\"100\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/42",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"42"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:32:11 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 42,\n    \"brand\": \"Mercedes\",\n    \"model\": \"C220\",\n    \"office\": {\n        \"id\": 1,\n        \"country\": \"Bulgaria\",\n        \"city\": \"Sofia\",\n        \"address\": \"123 Main St, Sofia\",\n        \"hibernateLazyInitializer\": {}\n    },\n    \"pricePerDay\": 100,\n    \"taken\": false,\n    \"active\": true,\n    \"hibernateLazyInitializer\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Bean invalid car update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"brand\":\"   \",\r\n    \"model\":\"   \",\r\n    \"pricePerDay\":\"-100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/42",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"42"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Bean invalid car update",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\":\"   \",\r\n    \"model\":\"   \",\r\n    \"pricePerDay\":\"-100\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/42",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"42"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:32:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"officeId\": \"must not be null\",\n    \"model\": \"must not be blank\",\n    \"pricePerDay\": \"must be greater than 0\",\n    \"brand\": \"must not be blank\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Invalid office reference car update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"brand\":\"Mercedes\",\r\n    \"model\":\"C220\",\r\n    \"officeId\":\"-1\",\r\n    \"pricePerDay\":\"100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/42",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"42"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Invalid office reference car update",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\":\"Mercedes\",\r\n    \"model\":\"C220\",\r\n    \"officeId\":\"-1\",\r\n    \"pricePerDay\":\"100\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/42",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"42"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:32:34 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unable to find pu.fmi.rent_a_car.office.model.Office with id -1\",\n    \"code\": 404\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete car",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/42",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"42"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete car",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/42",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"42"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:32:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Valid offer create with user with car accidents",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"6\",\r\n    \"carId\":\"33\",\r\n    \"daysOfRent\":\"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/offers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"offers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Valid offer create with user with car accidents",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"6\",\r\n    \"carId\":\"33\",\r\n    \"daysOfRent\":\"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/offers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"offers"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:38:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 54,\n    \"car\": {\n        \"id\": 33,\n        \"brand\": \"BMW\",\n        \"model\": \"E60\",\n        \"office\": {\n            \"id\": 2,\n            \"country\": \"Bulgaria\",\n            \"city\": \"Plovdiv\",\n            \"address\": \"456 Central Ave, Plovdiv\"\n        },\n        \"pricePerDay\": 150,\n        \"taken\": false,\n        \"active\": true,\n        \"hibernateLazyInitializer\": {}\n    },\n    \"user\": {\n        \"id\": 6,\n        \"firstName\": \"Georgi\",\n        \"lastName\": \"Georgiev\",\n        \"address\": \"Plovdiv\",\n        \"phone\": \"0877777777\",\n        \"age\": 20,\n        \"hasCarAccidents\": true,\n        \"active\": true,\n        \"hibernateLazyInitializer\": {}\n    },\n    \"daysOfRent\": 5,\n    \"totalPrice\": 980,\n    \"acceptedAt\": null,\n    \"accepted\": false,\n    \"expireAt\": null,\n    \"expired\": false,\n    \"active\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Valid offer create with user without car accidents",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"7\",\r\n    \"carId\":\"37\",\r\n    \"daysOfRent\":\"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/offers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"offers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Valid offer create with user without car accidents",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"7\",\r\n    \"carId\":\"37\",\r\n    \"daysOfRent\":\"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/offers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"offers"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:39:07 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 55,\n    \"car\": {\n        \"id\": 37,\n        \"brand\": \"BMW\",\n        \"model\": \"E30\",\n        \"office\": {\n            \"id\": 1,\n            \"country\": \"Bulgaria\",\n            \"city\": \"Sofia\",\n            \"address\": \"123 Main St, Sofia\"\n        },\n        \"pricePerDay\": 50,\n        \"taken\": false,\n        \"active\": true,\n        \"hibernateLazyInitializer\": {}\n    },\n    \"user\": {\n        \"id\": 7,\n        \"firstName\": \"Ivan\",\n        \"lastName\": \"Ivanov\",\n        \"address\": \"Sofia\",\n        \"phone\": \"0866666666\",\n        \"age\": 30,\n        \"hasCarAccidents\": false,\n        \"active\": true,\n        \"hibernateLazyInitializer\": {}\n    },\n    \"daysOfRent\": 5,\n    \"totalPrice\": 260,\n    \"acceptedAt\": null,\n    \"accepted\": false,\n    \"expireAt\": null,\n    \"expired\": false,\n    \"active\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Bean invalid offer create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"daysOfRent\":\"-5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/offers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"offers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Bean invalid offer create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"daysOfRent\":\"-5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/offers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"offers"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:35:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"daysOfRent\": \"must be greater than 0\",\n    \"userId\": \"must not be null\",\n    \"carId\": \"must not be null\"\n}"
+				}
+			]
+		},
+		{
+			"name": "User inactive, invalid offer create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"carId\":\"42\",\r\n    \"userId\":\"8\",\r\n    \"daysOfRent\":\"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/offers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"offers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User inactive, invalid offer create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"carId\":\"42\",\r\n    \"userId\":\"8\",\r\n    \"daysOfRent\":\"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/offers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"offers"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:34:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User must be active for offer!\",\n    \"code\": 404\n}"
+				}
+			]
+		},
+		{
+			"name": "Car inactive, invalid offer create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"carId\":\"42\",\r\n    \"userId\":\"7\",\r\n    \"daysOfRent\":\"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/offers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"offers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Car inactive, invalid offer create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"carId\":\"42\",\r\n    \"userId\":\"7\",\r\n    \"daysOfRent\":\"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/offers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"offers"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:34:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Car must be active for offer!\",\n    \"code\": 404\n}"
+				}
+			]
+		},
+		{
+			"name": "Car taken, invalid offer create Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"carId\":\"37\",\r\n    \"userId\":\"7\",\r\n    \"daysOfRent\":\"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/offers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"offers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Car taken, invalid offer create Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"carId\":\"37\",\r\n    \"userId\":\"7\",\r\n    \"daysOfRent\":\"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/offers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"offers"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:43:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Car must be free (not in active offer) for offer!\",\n    \"code\": 404\n}"
+				}
+			]
+		},
+		{
+			"name": "Car and user different locations, invalid offer create Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"carId\":\"39\",\r\n    \"userId\":\"7\",\r\n    \"daysOfRent\":\"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/offers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"offers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Car and user different locations, invalid offer create Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"carId\":\"39\",\r\n    \"userId\":\"7\",\r\n    \"daysOfRent\":\"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/offers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"offers"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:30:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Car's location must be same as user's location!\",\n    \"code\": 404\n}"
+				}
+			]
+		},
+		{
+			"name": "Get offer by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/offers/54",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"offers",
+						"54"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get offer by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/offers/54",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"offers",
+								"54"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:44:44 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 54,\n    \"car\": {\n        \"id\": 33,\n        \"brand\": \"BMW\",\n        \"model\": \"E60\",\n        \"office\": {\n            \"id\": 2,\n            \"country\": \"Bulgaria\",\n            \"city\": \"Plovdiv\",\n            \"address\": \"456 Central Ave, Plovdiv\"\n        },\n        \"pricePerDay\": 150,\n        \"taken\": false,\n        \"active\": true\n    },\n    \"user\": {\n        \"id\": 6,\n        \"firstName\": \"Georgi\",\n        \"lastName\": \"Georgiev\",\n        \"address\": \"Plovdiv\",\n        \"phone\": \"0877777777\",\n        \"age\": 20,\n        \"hasCarAccidents\": true,\n        \"active\": true\n    },\n    \"daysOfRent\": 5,\n    \"totalPrice\": 980,\n    \"acceptedAt\": null,\n    \"accepted\": false,\n    \"expireAt\": null,\n    \"expired\": false,\n    \"active\": true,\n    \"hibernateLazyInitializer\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Get invalid offer by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/offers/-5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"offers",
+						"-5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get invalid offer by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/offers/-5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"offers",
+								"-5"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:46:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unable to find pu.fmi.rent_a_car.offer.model.Offer with id -5\",\n    \"code\": 404\n}"
+				}
+			]
+		},
+		{
+			"name": "Get offers by userId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/offers?userId=6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"offers"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get offers by userId",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/offers?userId=6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"offers"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:48:32 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"content\": [\n        {\n            \"id\": 54,\n            \"car\": {\n                \"id\": 33,\n                \"brand\": \"BMW\",\n                \"model\": \"E60\",\n                \"office\": {\n                    \"id\": 2,\n                    \"country\": \"Bulgaria\",\n                    \"city\": \"Plovdiv\",\n                    \"address\": \"456 Central Ave, Plovdiv\"\n                },\n                \"pricePerDay\": 150,\n                \"taken\": false,\n                \"active\": true\n            },\n            \"user\": {\n                \"id\": 6,\n                \"firstName\": \"Georgi\",\n                \"lastName\": \"Georgiev\",\n                \"address\": \"Plovdiv\",\n                \"phone\": \"0877777777\",\n                \"age\": 20,\n                \"hasCarAccidents\": true,\n                \"active\": true\n            },\n            \"daysOfRent\": 5,\n            \"totalPrice\": 980,\n            \"acceptedAt\": null,\n            \"accepted\": false,\n            \"expireAt\": null,\n            \"expired\": false,\n            \"active\": true\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 20,\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"offset\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"last\": true,\n    \"totalPages\": 1,\n    \"totalElements\": 1,\n    \"first\": true,\n    \"size\": 20,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": true,\n        \"sorted\": false,\n        \"unsorted\": true\n    },\n    \"numberOfElements\": 1,\n    \"empty\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Accept offer",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/offers/54/accept",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"offers",
+						"54",
+						"accept"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Accept offer",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/offers/54/accept",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"offers",
+								"54",
+								"accept"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:54:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 54,\n    \"car\": {\n        \"id\": 33,\n        \"brand\": \"BMW\",\n        \"model\": \"E60\",\n        \"office\": {\n            \"id\": 2,\n            \"country\": \"Bulgaria\",\n            \"city\": \"Plovdiv\",\n            \"address\": \"456 Central Ave, Plovdiv\"\n        },\n        \"pricePerDay\": 150,\n        \"taken\": true,\n        \"active\": true\n    },\n    \"user\": {\n        \"id\": 6,\n        \"firstName\": \"Georgi\",\n        \"lastName\": \"Georgiev\",\n        \"address\": \"Plovdiv\",\n        \"phone\": \"0877777777\",\n        \"age\": 20,\n        \"hasCarAccidents\": true,\n        \"active\": true\n    },\n    \"daysOfRent\": 5,\n    \"totalPrice\": 980,\n    \"acceptedAt\": \"2024-11-09\",\n    \"accepted\": true,\n    \"expireAt\": \"2024-11-14\",\n    \"expired\": false,\n    \"active\": true,\n    \"hibernateLazyInitializer\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete offer by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/offers/55",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"offers",
+						"55"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete offer by id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/offers/55",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"offers",
+								"55"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 09 Nov 2024 15:49:32 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
