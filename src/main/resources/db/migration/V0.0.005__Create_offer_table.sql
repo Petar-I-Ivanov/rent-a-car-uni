@@ -4,7 +4,9 @@ CREATE TABLE offer (
     user_id BIGINT NOT NULL,
     days_of_rent SMALLINT NOT NULL,
     total_price DECIMAL(15, 2) NOT NULL,
+    accepted_at DATE,
     accepted BOOLEAN NOT NULL,
+    expire_at DATE,
     expired BOOLEAN NOT NULL,
     active BOOLEAN NOT NULL,
 

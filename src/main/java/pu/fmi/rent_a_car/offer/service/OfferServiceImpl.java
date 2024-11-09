@@ -67,7 +67,10 @@ public class OfferServiceImpl implements OfferService {
   @Override
   public Offer acceptOffer(Long id) {
     var offer = getById(id);
+    var today = LocalDate.now();
+    offer.setAcceptedAt(today);
     offer.setAccepted(true);
+    offer.setExpireAt(today.plusDays(offer.getDaysOfRent()));
     return offer;
   }
 
