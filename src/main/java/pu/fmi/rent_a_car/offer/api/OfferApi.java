@@ -25,7 +25,7 @@ import pu.fmi.rent_a_car.offer.model.OfferCreateRequest;
 import pu.fmi.rent_a_car.offer.service.OfferService;
 
 @RestController
-@RequestMapping("/api/v1/offer")
+@RequestMapping("/api/v1/offers")
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 public class OfferApi {

@@ -10,7 +10,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -42,12 +41,12 @@ public class Offer {
 
   @Column(scale = 2, nullable = false)
   BigDecimal totalPrice;
-  
+
   LocalDate acceptedAt;
 
   @Column(nullable = false)
   boolean accepted;
-  
+
   LocalDate expireAt;
 
   @Column(nullable = false)

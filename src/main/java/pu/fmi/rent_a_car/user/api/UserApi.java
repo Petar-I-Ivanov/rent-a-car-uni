@@ -1,4 +1,4 @@
-package pu.fmi.rent_a_car.car.api;
+package pu.fmi.rent_a_car.user.api;
 
 import static lombok.AccessLevel.PRIVATE;
 import static org.springframework.http.HttpStatus.CREATED;
@@ -20,46 +20,46 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import pu.fmi.rent_a_car.car.model.Car;
-import pu.fmi.rent_a_car.car.model.CarCreateEditRequest;
-import pu.fmi.rent_a_car.car.service.CarService;
+import pu.fmi.rent_a_car.user.model.User;
+import pu.fmi.rent_a_car.user.model.UserCreateEditRequest;
+import pu.fmi.rent_a_car.user.service.UserService;
 
 @RestController
-@RequestMapping("/api/v1/cars")
+@RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE, makeFinal = true)
-public class CarApi {
+public class UserApi {
 
-  CarService carService;
+  UserService userService;
 
   @PostMapping
   @ResponseStatus(CREATED)
-  public Car createCar(@Valid @RequestBody CarCreateEditRequest request) {
-    return carService.create(request);
+  public User createUser(@Valid @RequestBody UserCreateEditRequest request) {
+    return userService.create(request);
   }
 
   @GetMapping("/{id}")
   @ResponseStatus(OK)
-  public Car getCarById(@PathVariable Long id) {
-    return carService.getById(id);
+  public User getUserById(@PathVariable Long id) {
+    return userService.getById(id);
   }
 
   @GetMapping
   @ResponseStatus(OK)
-  public Page<Car> getCarsByLocation(String location, Pageable pageable) {
-    return carService.getAllByLocation(location, pageable);
+  public Page<User> getAllUsers(Pageable pageable) {
+    return userService.getAll(pageable);
   }
 
   @PutMapping("/{id}")
   @ResponseStatus(OK)
-  public Car updateCar(@PathVariable Long id, @Valid @RequestBody CarCreateEditRequest request) {
-    return carService.update(id, request);
+  public User updateUser(@PathVariable Long id, @Valid @RequestBody UserCreateEditRequest request) {
+    return userService.update(id, request);
   }
 
   @DeleteMapping("/{id}")
   @ResponseStatus(NO_CONTENT)
-  public ResponseEntity<Void> deleteCar(@PathVariable Long id) {
-    carService.delete(id);
+  public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+    userService.delete(id);
     return ResponseEntity.status(NO_CONTENT).build();
   }
 }
